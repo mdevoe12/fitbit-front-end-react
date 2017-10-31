@@ -19,12 +19,14 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
+          <h1 className="App-title">Welcome to Correlation Station</h1>
         </header>
         <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
+          Correlation Station uses your existing FitBit data and displays correlations among the major data points.
         </p>
-        <a href="//google.com">Click to Login to FitBit</a>
+        <p className="App-intro">
+          Click the button below to begin
+        </p>
         <button text="Login with FitBit" onClick={this.handleOnClick} type="button">
         Login with FitBit
         </button>
