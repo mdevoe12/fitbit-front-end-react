@@ -3,18 +3,22 @@ import axios from 'axios';
 import logo from './logo.svg';
 import './App.css';
 import FitbitApiClient from 'fitbit-node';
-let test = "test";
+// let token = window.location.search.substring(1);
+// let qs = parse_query_string(token)
+let current_url = window.location.href
+let raw_token = current_url.split('token=')[1]
+let token = raw_token.replace(/#/, "").replace(/_/g, "").replace(/=/g, "")
 
 
 class App extends Component {
   handleOnClick = () => {
     axios.get('http://localhost:3000/api/v1/keys')
     .then((response) => {
-      let client = new FitbitApiClient(response.data["id"], response.data["secret"])
-      let scope = 'activity heartrate location nutrition profile settings sleep social weight'
-      let callback = 'http://localhost:3000/auth/fitbit/callback'
-      console.log(test)
-      window.location.href = client.getAuthorizeUrl(scope, callback)
+      // let client = new FitbitApiClient(response.data["id"], response.data["secret"])
+      // let scope = 'activity heartrate location nutrition profile settings sleep social weight'
+      // let callback = 'http://localhost:3000/auth/fitbit/callback'
+      console.log(token)
+      // window.location.href = client.getAuthorizeUrl(scope, callback)
     })
   }
 
