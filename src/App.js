@@ -25,7 +25,11 @@ class App extends Component {
   }
 
   handleLogoutClick = () => {
-    axios.delete('')
+    axios.delete('http://localhost:3000/api/v1/logout', {
+      headers: {auth_token: token}
+    }).then((response => {
+      window.location.href = 'http://localhost:8080'
+    }))
   }
 
   handleOnClick = () => {
