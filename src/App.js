@@ -7,8 +7,6 @@ let current_url = window.location.href
 let token = ""
 
 
-
-
 function setToken() {
   if (current_url.includes("token")) {
     let raw_token = current_url.split('token=')[1]
