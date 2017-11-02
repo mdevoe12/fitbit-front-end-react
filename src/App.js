@@ -42,10 +42,24 @@ class App extends Component {
     })
   }
 
+  handleImportClick = () => {
+    console.log(token)
+    axios.post(api + '/api/v1/fitbit_data', "", {
+      headers: {auth_token: token}
+    })
+    .then((response) => {
+      console.log("success")
+    })
+  }
+
+
+
 
   render() {
     console.log(token)
     let button = null;
+    let import_button = null;
+
     if (token == "") {
       button = <button onClick={this.handleOnClick} type="button">
       Login with FitBit
@@ -53,6 +67,9 @@ class App extends Component {
     } else {
       button = <button onClick={this.handleLogoutClick} type="button">
       Logout
+      </button>
+      import_button = <button onClick={this.handleImportClick} type="button">
+      Import Data
       </button>
     }
     return (
@@ -68,6 +85,7 @@ class App extends Component {
           Click the button below to begin
         </p>
         {button}
+        {import_button}
       </div>
     );
   }
