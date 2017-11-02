@@ -3,6 +3,7 @@ import axios from 'axios';
 import logo from './logo.svg';
 import './App.css';
 import FitbitApiClient from 'fitbit-node';
+let api = "http://localhost:3000"
 let current_url = window.location.href
 let token = ""
 
@@ -23,7 +24,7 @@ class App extends Component {
   }
 
   handleLogoutClick = () => {
-    axios.delete('http://localhost:3000/api/v1/logout', {
+    axios.delete(api + '/api/v1/logout', {
       headers: {auth_token: token}
     }).then((response => {
       window.location.href = 'http://localhost:8080'
@@ -31,11 +32,11 @@ class App extends Component {
   }
 
   handleOnClick = () => {
-    axios.get('http://localhost:3000/api/v1/keys')
+    axios.get(api + '/api/v1/keys')
     .then((response) => {
       let client = new FitbitApiClient(response.data["id"], response.data["secret"])
       let scope = 'activity heartrate location nutrition profile settings sleep social weight'
-      let callback = 'http://localhost:3000/auth/fitbit/callback'
+      let callback = api + '/auth/fitbit/callback'
       console.log(token)
       window.location.href = client.getAuthorizeUrl(scope, callback)
     })
