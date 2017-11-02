@@ -46,11 +46,11 @@ class App extends Component {
     console.log(token)
     let button = null;
     if (token == "") {
-      button = <button text="Login with FitBit" onClick={this.handleOnClick} type="button">
+      button = <button onClick={this.handleOnClick} type="button">
       Login with FitBit
       </button>
     } else {
-      button = <button text="Login with FitBit" onClick={this.handleLogoutClick} type="button">
+      button = <button onClick={this.handleLogoutClick} type="button">
       Logout
       </button>
     }
