@@ -3,10 +3,20 @@ import axios from 'axios';
 import logo from './logo.svg';
 import './App.css';
 import FitbitApiClient from 'fitbit-node';
+
+import { LineChart, Line } from 'recharts';
+
 let api = "http://localhost:3000"
 let current_url = window.location.href
 let token = ""
 
+let data = [      {name: 'Page A', uv: 4000, pv: 2400, amt: 2400},
+      {name: 'Page B', uv: 3000, pv: 1398, amt: 2210},
+      {name: 'Page C', uv: 2000, pv: 9800, amt: 2290},
+      {name: 'Page D', uv: 2780, pv: 3908, amt: 2000},
+      {name: 'Page E', uv: 1890, pv: 4800, amt: 2181},
+      {name: 'Page F', uv: 2390, pv: 3800, amt: 2500},
+      {name: 'Page G', uv: 3490, pv: 4300, amt: 2100},]
 
 function setToken() {
   if (current_url.includes("token")) {
@@ -60,7 +70,7 @@ class App extends Component {
     let button = null;
     let import_button = null;
 
-    if (token == "") {
+    if (token === "") {
       button = <button onClick={this.handleOnClick} type="button">
       Login with FitBit
       </button>
@@ -86,6 +96,9 @@ class App extends Component {
         </p>
         {button}
         {import_button}
+        <LineChart width={400} height={400} data={data}>
+          <Line type="monotone" dataKey="uv" stroke="#8884d8" />
+        </LineChart>
       </div>
     );
   }
