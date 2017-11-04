@@ -35,12 +35,20 @@ function setToken() {
 
 class App extends Component {
   componentDidMount() {
-
+    if (current_url.includes("token")) {
+      let raw_token = current_url.split('token=')[1]
+      token = raw_token.replace(/#/, "").replace(/_/g, "").replace(/=/g, "")
+      this.setState({isLoggedIn: true})
+    } else {
+      this.setState({isLoggedIn: false})
+    }
   }
 
   constructor(props) {
     super(props);
-    this.state = setToken();
+    this.state = {
+      isLoggedIn: false
+    };
   }
 
   handleLogoutClick = () => {
@@ -89,8 +97,7 @@ class App extends Component {
     let button = null;
     let import_button = null;
     let graph = null;
-
-    if (token === "") {
+    if (this.state.isLoggedIn === false) {
       button = <button onClick={this.handleOnClick} type="button">
       Login with FitBit
       </button>
