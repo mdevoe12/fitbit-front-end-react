@@ -9,29 +9,7 @@ import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'r
 let api = "http://localhost:3000"
 let current_url = window.location.href
 let token = ""
-let data = null
 
-// let data = [      {name: '10/01', sleep: 400, weight: 85, amt: 240},
-//                   {name: '10/02', sleep: 300, weight: 90, amt: 221},
-//                   {name: '10/03', sleep: 200, weight: 89, amt: 220},
-//                   {name: '10/04', sleep: 180, weight: 88, amt: 200},
-//                   {name: '10/05', sleep: 0,   weight: 87, amt: 218},
-//                   {name: '10/06', sleep: 100, weight: 86, amt: 250},
-//                   {name: '10/07', sleep: 300, weight: 87, amt: 221},
-//                   {name: '10/08', sleep: 200, weight: 89, amt: 290},
-//                   {name: '10/09', sleep: 278, weight: 91, amt: 200},
-//                   {name: '10/10', sleep: 189, weight: 92, amt: 281},
-//                   {name: '10/11', sleep: 239, weight: 91, amt: 250},
-//                   {name: '10/12', sleep: 349, weight: 89, amt: 210},]
-
-function setToken() {
-  if (current_url.includes("token")) {
-    let raw_token = current_url.split('token=')[1]
-    token = raw_token.replace(/#/, "").replace(/_/g, "").replace(/=/g, "")
-  } else {
-    return {isLoggedIn: false}
-  }
-}
 
 class App extends Component {
   componentDidMount() {
@@ -47,7 +25,8 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isLoggedIn: false
+      isLoggedIn: false,
+      data: []
     };
   }
 
@@ -70,21 +49,13 @@ class App extends Component {
     })
   }
 
-  handleImportClick = () => {
-    axios.post(api + '/api/v1/fitbit_data', "", {
-      headers: {auth_token: token}
-    })
-    .then((response) => {
-      console.log("success")
-    })
-  }
-
   handleRenderGraph = () => {
     axios.get(api + '/api/v1/fitbit_data', {
       headers: {auth_token: token}
     }).then((response) => {
-      data = response.data
-      console.log(this)
+      this.setState({
+        data: response.data
+      })
     })
     .catch((error) => {
       console.error(error)
@@ -95,7 +66,7 @@ class App extends Component {
 
   render() {
     let button = null;
-    let import_button = null;
+    let renderGraph = null;
     let graph = null;
     if (this.state.isLoggedIn === false) {
       button = <button onClick={this.handleOnClick} type="button">
@@ -105,10 +76,10 @@ class App extends Component {
       button = <button onClick={this.handleLogoutClick} type="button">
       Logout
       </button>
-      import_button = <button onClick={this.handleRenderGraph} type="button">
-      Import Data
+      renderGraph = <button onClick={this.handleRenderGraph} type="button">
+      Correlate My Data!
       </button>
-      graph = <LineChart width={900} height={300} data={data}
+      graph = <LineChart width={900} height={300} data={this.state.data}
                   margin={{top: 5, right: 30, left: 20, bottom: 5}}>
                 <XAxis dataKey="date"/>
              <YAxis/>
@@ -133,7 +104,7 @@ class App extends Component {
           Click the button below to begin
         </p>
         {button}
-        {import_button}
+        {renderGraph}
         {graph}
       </div>
     );
