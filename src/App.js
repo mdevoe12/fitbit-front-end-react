@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import logo from './logo.svg';
 import './App.css';
-import FitbitApiClient from 'fitbit-node';
 import LoggedOut from './components/loggedOut'
 import LoggedIn from './components/loggedIn'
 
@@ -33,25 +32,6 @@ class App extends Component {
     };
   }
 
-  handleLogoutClick = () => {
-    axios.delete(api + '/api/v1/logout', {
-      headers: {auth_token: token}
-    }).then((response => {
-      window.location.href = 'http://localhost:8080'
-    }))
-  }
-
-  handleOnClick = () => {
-    axios.get(api + '/api/v1/keys')
-    .then((response) => {
-      let client = new FitbitApiClient(response.data["id"], response.data["secret"])
-      let scope = 'activity heartrate location nutrition profile settings sleep social weight'
-      let callback = api + '/auth/fitbit/callback'
-      console.log(token)
-      window.location.href = client.getAuthorizeUrl(scope, callback)
-    })
-  }
-
   handleRenderGraph = () => {
     axios.get(api + '/api/v1/fitbit_data', {
       headers: {auth_token: token}
@@ -64,8 +44,6 @@ class App extends Component {
       console.error(error)
     })
   }
-
-
 
   render() {
     let button;
