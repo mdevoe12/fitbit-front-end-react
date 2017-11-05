@@ -44,17 +44,13 @@ class App extends Component {
     }
     return (
       <div className="App">
-        <Col xs={6} md={4} className="App-header">
+        <Col xs={6} md={3} className="App-header">
           <h1 className="App-title">insight</h1>
           <p className="App-intro">
             find relationships
           </p>
-
-          <p className="App-intro-second">
-            login to begin your journey
-          </p>
         </Col>
-          <Col xs={12} md={8} className="App-header-col-2">
+          <Col xs={12} md={9} className="App-header-col-2">
           {display}
         </Col>
 

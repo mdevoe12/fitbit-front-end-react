@@ -41,6 +41,9 @@ class LoggedIn extends Component {
         text="Logout"
         onClick={this.handleLogoutClick.bind(this)}
         />
+
+        <br></br>
+        <h3> resting heart rate vs. rem & deep sleep </h3>
         <Graph data={this.state.data}/>
       </div>
     )
