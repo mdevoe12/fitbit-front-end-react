@@ -3,6 +3,7 @@ import axios from 'axios';
 import logo from './logo.svg';
 import './App.css';
 import FitbitApiClient from 'fitbit-node';
+import LoggedOut from './components/loggedOut'
 
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 
@@ -65,13 +66,18 @@ class App extends Component {
 
 
   render() {
-    let button = null;
-    let renderGraph = null;
-    let graph = null;
-    if (this.state.isLoggedIn === false) {
-      button = <button onClick={this.handleOnClick} type="button">
-      Login with FitBit
-      </button>
+    let button;
+    let renderGraph;
+    let graph;
+    // {
+    //   (this.state.isLoggedIn) &&
+    //   <LoggedOut />
+    // }
+    if (!this.state.isLoggedIn) {
+      // button = <button onClick={this.handleOnClick} type="button">
+      // Login with FitBit
+      // </button>
+      button = <LoggedOut />
     } else {
       button = <button onClick={this.handleLogoutClick} type="button">
       Logout
