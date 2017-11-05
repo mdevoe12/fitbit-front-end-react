@@ -6,6 +6,15 @@ let api = "http://localhost:3000"
 
 
 class LoggedIn extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      token: props.token,
+      data: null
+    }
+  }
+
+
   componentDidMount() {
     axios.get(api + '/api/v1/fitbit_data', {
       headers: {auth_token: this.state.token}
@@ -19,13 +28,7 @@ class LoggedIn extends Component {
     })
   }
 
-  constructor(props) {
-    super(props)
-    this.state = {
-      token: props.token,
-      data: []
-    }
-  }
+
 
   handleLogoutClick = () => {
     axios.delete(api + '/api/v1/logout', {

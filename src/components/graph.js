@@ -1,13 +1,11 @@
-import React, { Component } from 'react';
-import axios from 'axios';
+import React from 'react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 
-let api = "http://localhost:3000"
 
-class Graph extends Component {
-  render() {
+const Graph = props => {
+
     return (
-      <LineChart className="graph" width={900} height={300} data={this.state.data}
+      <LineChart className="graph" width={900} height={300} data={props.data}
                   margin={{top: 5, right: 30, left: 20, bottom: 5}}>
        <XAxis dataKey="date"/>
        <YAxis/>
@@ -20,6 +18,6 @@ class Graph extends Component {
       </LineChart>
     )
   }
-}
+
 
 export default Graph;
