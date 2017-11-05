@@ -4,7 +4,6 @@ import Graph from './graph'
 import axios from 'axios';
 let api = "http://localhost:3000"
 
-
 class LoggedIn extends Component {
   constructor(props) {
     super(props)
@@ -13,7 +12,6 @@ class LoggedIn extends Component {
       data: null
     }
   }
-
 
   componentDidMount() {
     axios.get(api + '/api/v1/fitbit_data', {
@@ -27,8 +25,6 @@ class LoggedIn extends Component {
       console.error(error)
     })
   }
-
-
 
   handleLogoutClick = () => {
     axios.delete(api + '/api/v1/logout', {

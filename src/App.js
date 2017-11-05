@@ -1,18 +1,22 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import logo from './logo.svg';
 import './App.css';
 import LoggedOut from './components/loggedOut'
 import LoggedIn from './components/loggedIn'
 
-// import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
-
-let api = "http://localhost:3000"
 let current_url = window.location.href
 let token = ""
 
-
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isLoggedIn: false,
+      data: [],
+      token: null
+    };
+  }
+
   componentDidMount() {
     if (current_url.includes("token")) {
       let raw_token = current_url.split('token=')[1]
@@ -23,54 +27,17 @@ class App extends Component {
     }
   }
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      isLoggedIn: false,
-      data: [],
-      token: null
-    };
-  }
-
-  handleRenderGraph = () => {
-    axios.get(api + '/api/v1/fitbit_data', {
-      headers: {auth_token: token}
-    }).then((response) => {
-      this.setState({
-        data: response.data
-      })
-    })
-    .catch((error) => {
-      console.error(error)
-    })
-  }
 
   render() {
-    let button;
-    let renderGraph;
-    let graph;
+    let display;
     // {
     //   (this.state.isLoggedIn) &&
     //   <LoggedOut />
     // }
     if (!this.state.isLoggedIn) {
-      button = <LoggedOut />
+      display = <LoggedOut />
     } else {
-      button = <LoggedIn token={this.state.token}/>
-      renderGraph = <button onClick={this.handleRenderGraph} type="button">
-      Correlate My Data!
-      </button>
-      // graph = <LineChart width={900} height={300} data={this.state.data}
-      //             margin={{top: 5, right: 30, left: 20, bottom: 5}}>
-      //           <XAxis dataKey="date"/>
-      //        <YAxis/>
-      //        <CartesianGrid strokeDasharray="3 3"/>
-      //        <Tooltip/>
-      //        <Legend />
-      //        <Line type="monotone" dataKey="heart_rate" stroke="#8884d8" activeDot={{r: 8}}/>
-      //        <Line type="monotone" dataKey="rem" stroke="#82ca9d" />
-      //        <Line type="monotone" dataKey="deep" stroke="#82ca9d" />
-      //         </LineChart>
+      display = <LoggedIn token={this.state.token}/>
     }
     return (
       <div className="App">
@@ -84,9 +51,7 @@ class App extends Component {
         <p className="App-intro">
           Click the button below to begin
         </p>
-        {button}
-        {renderGraph}
-        {graph}
+        {display}
       </div>
     );
   }
