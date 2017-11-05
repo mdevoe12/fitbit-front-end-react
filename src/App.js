@@ -4,6 +4,7 @@ import logo from './logo.svg';
 import './App.css';
 import FitbitApiClient from 'fitbit-node';
 import LoggedOut from './components/loggedOut'
+import LoggedIn from './components/loggedIn'
 
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 
@@ -17,7 +18,7 @@ class App extends Component {
     if (current_url.includes("token")) {
       let raw_token = current_url.split('token=')[1]
       token = raw_token.replace(/#/, "").replace(/_/g, "").replace(/=/g, "")
-      this.setState({isLoggedIn: true})
+      this.setState({isLoggedIn: true, token: token})
     } else {
       this.setState({isLoggedIn: false})
     }
@@ -27,7 +28,8 @@ class App extends Component {
     super(props);
     this.state = {
       isLoggedIn: false,
-      data: []
+      data: [],
+      token: null
     };
   }
 
@@ -79,9 +81,10 @@ class App extends Component {
       // </button>
       button = <LoggedOut />
     } else {
-      button = <button onClick={this.handleLogoutClick} type="button">
-      Logout
-      </button>
+      // button = <button onClick={this.handleLogoutClick} type="button">
+      // Logout
+      // </button>
+      button = <LoggedIn token={this.state.token}/>
       renderGraph = <button onClick={this.handleRenderGraph} type="button">
       Correlate My Data!
       </button>

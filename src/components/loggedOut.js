@@ -8,7 +8,6 @@ let api = "http://localhost:3000"
 class LoggedOut extends Component {
 
   handleOnClick = () => {
-    console.log("test")
     axios.get(api + '/api/v1/keys')
     .then((response) => {
       let client = new FitbitApiClient(response.data["id"], response.data["secret"])
