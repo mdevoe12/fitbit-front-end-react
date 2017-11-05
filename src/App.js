@@ -76,14 +76,8 @@ class App extends Component {
     //   <LoggedOut />
     // }
     if (!this.state.isLoggedIn) {
-      // button = <button onClick={this.handleOnClick} type="button">
-      // Login with FitBit
-      // </button>
       button = <LoggedOut />
     } else {
-      // button = <button onClick={this.handleLogoutClick} type="button">
-      // Logout
-      // </button>
       button = <LoggedIn token={this.state.token}/>
       renderGraph = <button onClick={this.handleRenderGraph} type="button">
       Correlate My Data!
