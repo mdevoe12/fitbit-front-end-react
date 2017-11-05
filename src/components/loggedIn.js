@@ -1,14 +1,29 @@
 import React, { Component } from 'react';
 import ActionButton from './actionButton'
+import Graph from './graph'
 import axios from 'axios';
 let api = "http://localhost:3000"
 
 
 class LoggedIn extends Component {
+  componentDidMount() {
+    axios.get(api + '/api/v1/fitbit_data', {
+      headers: {auth_token: this.state.token}
+    }).then((response) => {
+      this.setState({
+        data: response.data
+      })
+    })
+    .catch((error) => {
+      console.error(error)
+    })
+  }
+
   constructor(props) {
     super(props)
     this.state = {
-      token: props.token
+      token: props.token,
+      data: []
     }
   }
 
@@ -22,10 +37,13 @@ class LoggedIn extends Component {
 
   render() {
     return (
-      <ActionButton
-      text="Logout"
-      onClick={this.handleLogoutClick.bind(this)}
-      />
+      <div>
+        <ActionButton
+        text="Logout"
+        onClick={this.handleLogoutClick.bind(this)}
+        />
+        <Graph data={this.state.data}/>
+      </div>
     )
   }
 }

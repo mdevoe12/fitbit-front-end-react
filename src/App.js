@@ -5,7 +5,7 @@ import './App.css';
 import LoggedOut from './components/loggedOut'
 import LoggedIn from './components/loggedIn'
 
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
+// import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 
 let api = "http://localhost:3000"
 let current_url = window.location.href
@@ -60,17 +60,17 @@ class App extends Component {
       renderGraph = <button onClick={this.handleRenderGraph} type="button">
       Correlate My Data!
       </button>
-      graph = <LineChart width={900} height={300} data={this.state.data}
-                  margin={{top: 5, right: 30, left: 20, bottom: 5}}>
-                <XAxis dataKey="date"/>
-             <YAxis/>
-             <CartesianGrid strokeDasharray="3 3"/>
-             <Tooltip/>
-             <Legend />
-             <Line type="monotone" dataKey="heart_rate" stroke="#8884d8" activeDot={{r: 8}}/>
-             <Line type="monotone" dataKey="rem" stroke="#82ca9d" />
-             <Line type="monotone" dataKey="deep" stroke="#82ca9d" />
-              </LineChart>
+      // graph = <LineChart width={900} height={300} data={this.state.data}
+      //             margin={{top: 5, right: 30, left: 20, bottom: 5}}>
+      //           <XAxis dataKey="date"/>
+      //        <YAxis/>
+      //        <CartesianGrid strokeDasharray="3 3"/>
+      //        <Tooltip/>
+      //        <Legend />
+      //        <Line type="monotone" dataKey="heart_rate" stroke="#8884d8" activeDot={{r: 8}}/>
+      //        <Line type="monotone" dataKey="rem" stroke="#82ca9d" />
+      //        <Line type="monotone" dataKey="deep" stroke="#82ca9d" />
+      //         </LineChart>
     }
     return (
       <div className="App">
