@@ -4,7 +4,6 @@ import axios from 'axios';
 import FitbitApiClient from 'fitbit-node';
 let api = "http://localhost:3000"
 
-
 class LoggedOut extends Component {
 
   handleOnClick = () => {
