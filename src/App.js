@@ -44,22 +44,20 @@ class App extends Component {
     }
     return (
       <div className="App">
-      <header className="App-header">
-      <Col xs={12} md={8}>
+        <Col xs={6} md={4} className="App-header">
           <h1 className="App-title">insight</h1>
-        </Col>
-         <Col xs={6} md={4}>
+          <p className="App-intro">
+            find relationships
+          </p>
 
-        {display}
-
+          <p className="App-intro-second">
+            login to begin your journey
+          </p>
         </Col>
-      </header>
-      <p className="App-intro">
-        insight finds relationships
-      </p>
-      <p className="App-intro">
-        login with your fitbit account to begin your journey
-      </p>
+          <Col xs={12} md={8} className="App-header-col-2">
+          {display}
+        </Col>
+
       </div>
     );
   }
