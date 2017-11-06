@@ -5,7 +5,7 @@ Insight is for Fitbit users who want to know more about their data. Currently, F
 
 Insight is built on two separate applications. This repo is for the React front-end, currently running live here: https://mdevoe12.github.io/fitbit-front-end-react/
 
-The back-end is a Ruby-on-Rails server currently hosted on Heroku: https://insight-api.herokuapp.com/
+The back-end is a Ruby-on-Rails server currently hosted on Heroku: https://insight-api.herokuapp.com/ , the GitHub repo can be found here: https://github.com/mdevoe12/fitbit-backend
 
 ## Getting Started
 
