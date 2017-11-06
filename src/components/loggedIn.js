@@ -3,7 +3,7 @@ import ActionButton from './actionButton';
 import Graph from './graph';
 import WeightHeart from './weightHeart'
 import axios from 'axios';
-let api = "http://localhost:3000"
+let api = "https://insight-api.herokuapp.com"
 
 class LoggedIn extends Component {
   constructor(props) {
