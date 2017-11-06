@@ -33,7 +33,7 @@ class LoggedIn extends Component {
     axios.delete(api + '/api/v1/logout', {
       headers: {auth_token: this.state.token}
     }).then((response => {
-      window.location.href = 'http://localhost:8080'
+      window.location.href = 'https://mdevoe12.github.io/fitbit-front-end-react/'
     }))
   }
 
