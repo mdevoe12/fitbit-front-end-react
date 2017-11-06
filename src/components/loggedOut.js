@@ -18,9 +18,12 @@ class LoggedOut extends Component {
       let callback = "&redirect_uri=" + api + '/auth/fitbit/callback&'
       let scope = 'scope=activity heartrate location nutrition profile settings sleep social weight'
       let expiresIn = "&expires_in=604800"
-      window.location.href = client + responseType + client_id + callback + scope + expiresIn
-      // window.location.href = "https://www.fitbit.com/oauth2/authorize?response_type=code&" + "client_id=" + response.data["id"] + "&redirect_uri=" + api + "/auth/fitbit/callback&" + "scope=" + scope + "&expires_in=604800"
-
+      window.location.href = client +
+                             responseType +
+                             client_id +
+                             callback +
+                             scope +
+                             expiresIn
     })
   }
 
