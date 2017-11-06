@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import ActionButton from './actionButton'
 import axios from 'axios';
 import FitbitApiClient from 'fitbit-node';
-// import { Button, Grid, Row, Col } from 'react-bootstrap';
 import '../App.css';
 
 let api = "https://insight-api.herokuapp.com"

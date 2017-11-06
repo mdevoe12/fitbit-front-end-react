@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ActionButton from './actionButton';
-import Graph from './graph';
+import SleepGraph from './sleepGraph';
 import WeightHeart from './weightHeart'
 import axios from 'axios';
 let api = "https://insight-api.herokuapp.com"
@@ -19,7 +19,6 @@ class LoggedIn extends Component {
     axios.get(api + '/api/v1/fitbit_data', {
       headers: {auth_token: this.state.token}
     }).then((response) => {
-      // debugger
       this.setState({
         dataSleepHeart: response.data[0],
         dataActivityRem: response.data[1]
@@ -46,16 +45,15 @@ class LoggedIn extends Component {
         text="Logout"
         onClick={this.handleLogoutClick.bind(this)}
         />
-
         <br></br>
         <h3> sleep: wake - rem - deep </h3>
-        <div>
-        <Graph sleepHeartData={this.state.dataSleepHeart}/>
-        </div>
+          <div>
+          <SleepGraph sleepHeartData={this.state.dataSleepHeart}/>
+          </div>
         <h3> heart rate - calories burned  </h3>
-        <div>
-        <WeightHeart sleepActivityData={this.state.dataActivityRem}/>
-        </div>
+          <div>
+          <WeightHeart sleepActivityData={this.state.dataActivityRem}/>
+          </div>
       </div>
     )
   }

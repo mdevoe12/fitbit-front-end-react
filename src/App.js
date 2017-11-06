@@ -32,10 +32,6 @@ class App extends Component {
 
   render() {
     let display;
-    // {
-    //   (this.state.isLoggedIn) &&
-    //   <LoggedOut />
-    // }
     if (!this.state.isLoggedIn) {
       display = <LoggedOut />
     } else {
