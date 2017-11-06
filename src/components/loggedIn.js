@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ActionButton from './actionButton';
 import Graph from './graph';
-import SleepActivity from './sleepActivity'
+import WeightHeart from './weightHeart'
 import axios from 'axios';
 let api = "http://localhost:3000"
 
@@ -54,7 +54,7 @@ class LoggedIn extends Component {
         </div>
         <h3> activity vs. rem sleep </h3>
         <div>
-        <SleepActivity sleepActivityData={this.state.dataActivityRem}/>
+        <WeightHeart sleepActivityData={this.state.dataActivityRem}/>
         </div>
       </div>
     )
