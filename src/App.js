@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import LoggedOut from './components/loggedOut'
 import LoggedIn from './components/loggedIn'
 import 'bootstrap/less/bootstrap.less'
 // import './App.css';
-import { Button, Grid, Row, Col, Jumbotron, Navbar, Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
+import { Col } from 'react-bootstrap';
 
 
 let current_url = window.location.href
@@ -47,8 +46,9 @@ class App extends Component {
         <Col xs={6} md={3} className="App-header">
           <h1 className="App-title">insight</h1>
           <p className="App-intro">
-            find relationships
+            find connections, improve your life
           </p>
+
         </Col>
           <Col xs={12} md={9} className="App-header-col-2">
           {display}

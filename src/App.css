@@ -42,10 +42,10 @@ body {
   font-family: "Graphik Web Medium";
   background-color: black;
   color: white;
-  /*text-align: center;*/
+  text-align: center;
   font-size: 2em;
   font-weight: 500;
-  padding: 12px;
+  padding: 24px;
 }
 
 .App-intro-second {
