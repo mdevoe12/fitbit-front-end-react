@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ActionButton from './actionButton';
 import Graph from './graph';
-import SleepActivity from './sleepActivity'
+import WeightHeart from './weightHeart'
 import axios from 'axios';
 let api = "http://localhost:3000"
 
@@ -48,13 +48,13 @@ class LoggedIn extends Component {
         />
 
         <br></br>
-        <h3> resting heart rate vs. rem & deep sleep </h3>
+        <h3> sleep: wake - rem - deep </h3>
         <div>
         <Graph sleepHeartData={this.state.dataSleepHeart}/>
         </div>
-        <h3> activity vs. rem sleep </h3>
+        <h3> heart rate - calories burned  </h3>
         <div>
-        <SleepActivity sleepActivityData={this.state.dataActivityRem}/>
+        <WeightHeart sleepActivityData={this.state.dataActivityRem}/>
         </div>
       </div>
     )

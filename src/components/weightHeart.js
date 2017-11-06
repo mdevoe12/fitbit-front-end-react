@@ -1,7 +1,7 @@
 import React from 'react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 
-const SleepActivity = props => {
+const WeightHeart = props => {
   console.log(props.sleepActivityData)
     return (
       <LineChart className="graph" width={900} height={400} data={props.sleepActivityData}>
@@ -10,10 +10,10 @@ const SleepActivity = props => {
        <CartesianGrid strokeDasharray="3 3"/>
        <Tooltip cursor={{ stroke: 'red', strokeWidth: 2 }}/>
        <Legend />
-       <Line type="monotone" dataKey="caloriesOut" stroke="#40E0D0"/>
-       <Line type="monotone" dataKey="rem" stroke="yellow" />
+       <Line type="monotone" dataKey="caloriesOut_in_thousands" stroke="#40E0D0"/>
+       <Line type="monotone" dataKey="heart_rate" stroke="yellow" />
       </LineChart>
     )
   }
 
-export default SleepActivity;
+export default WeightHeart;
