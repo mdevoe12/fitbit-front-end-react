@@ -16,5 +16,6 @@
   "devDependencies": {
     "bootstrap": "^3.3.7",
     "react-bootstrap": "^0.31.5"
-  }
+  },
+  "homepage": "https://mdevoe12.github.io/fitbit-front-end-react"
 }
