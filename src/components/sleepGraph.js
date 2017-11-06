@@ -1,7 +1,7 @@
 import React from 'react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 
-const Graph = props => {
+const SleepGraph = props => {
     return (
       <LineChart className="graph" width={900} height={400} data={props.sleepHeartData}>
        <XAxis dataKey="date"/>
@@ -16,4 +16,4 @@ const Graph = props => {
     )
   }
 
-export default Graph;
+export default SleepGraph;

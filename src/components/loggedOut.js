@@ -2,10 +2,9 @@ import React, { Component } from 'react';
 import ActionButton from './actionButton'
 import axios from 'axios';
 import FitbitApiClient from 'fitbit-node';
-// import { Button, Grid, Row, Col } from 'react-bootstrap';
 import '../App.css';
 
-let api = "http://localhost:3000"
+let api = "https://insight-api.herokuapp.com"
 
 class LoggedOut extends Component {
 
