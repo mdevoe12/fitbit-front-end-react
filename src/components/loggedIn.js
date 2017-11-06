@@ -48,11 +48,11 @@ class LoggedIn extends Component {
         />
 
         <br></br>
-        <h3> resting heart rate vs. rem & deep sleep </h3>
+        <h3> sleep: wake - rem - deep </h3>
         <div>
         <Graph sleepHeartData={this.state.dataSleepHeart}/>
         </div>
-        <h3> activity vs. rem sleep </h3>
+        <h3> heart rate - calories burned  </h3>
         <div>
         <WeightHeart sleepActivityData={this.state.dataActivityRem}/>
         </div>
