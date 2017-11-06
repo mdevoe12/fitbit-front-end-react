@@ -1,5 +1,12 @@
+body {
+  background-color: black;
+  color: white;
+  font-family: "Graphik Web Medium";
+
+}
+
 .App {
-  text-align: center;
+  /*text-align: center;*/
 }
 
 .App-logo {
@@ -8,18 +15,58 @@
 }
 
 .App-header {
-  background-color: #222;
+  background-color: black;
   height: 150px;
   padding: 20px;
   color: white;
+  font-family: "Graphik Web Medium";
+}
+
+.App-header-col-2 {
+  background-color: black;
+  height: 150px;
+  padding: 20px;
+  color: white;
+  font-family: "Graphik Web Medium";
+  text-align: center;
+  margin-top: 30px;
+
 }
 
 .App-title {
-  font-size: 1.5em;
+  font-size: 5em;
+  font-weight: 500;
 }
 
 .App-intro {
-  font-size: large;
+  font-family: "Graphik Web Medium";
+  background-color: black;
+  color: white;
+  text-align: center;
+  font-size: 2em;
+  font-weight: 500;
+  padding: 24px;
+}
+
+.App-intro-second {
+  font-family: "Graphik Web Medium";
+  background-color: black;
+  color: white;
+  font-size: 2em;
+  font-weight: 500;
+  padding: 24px;
+}
+
+.App-description {
+  margin: 100px;
+}
+
+.action-button {
+  background-color: white;
+  color: black;
+  font-family: "Graphik Web Medium";
+  font-size: 2em;
+
 }
 
 @keyframes App-logo-spin {

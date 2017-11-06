@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
 import LoggedOut from './components/loggedOut'
 import LoggedIn from './components/loggedIn'
+import 'bootstrap/less/bootstrap.less'
+// import './App.css';
+import { Col } from 'react-bootstrap';
+
 
 let current_url = window.location.href
 let token = ""
@@ -41,17 +43,17 @@ class App extends Component {
     }
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to Correlation Station</h1>
-        </header>
-        <p className="App-intro">
-          Correlation Station uses your existing FitBit data and displays correlations among the major data points.
-        </p>
-        <p className="App-intro">
-          Click the button below to begin
-        </p>
-        {display}
+        <Col xs={6} md={3} className="App-header">
+          <h1 className="App-title">insight</h1>
+          <p className="App-intro">
+            find connections, improve your life
+          </p>
+
+        </Col>
+          <Col xs={12} md={9} className="App-header-col-2">
+          {display}
+        </Col>
+
       </div>
     );
   }
